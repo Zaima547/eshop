@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { AiFillStar, AiOutlineHeart, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
-// Best Deals wale products - id 1 to 5
+
 const allProducts = [
   {
     id: 1,
@@ -61,7 +61,7 @@ const allProducts = [
   },
 ];
 
-// Featured wale products - id 101 to 105
+
 const featuredProducts = [
   {
     id: 101,
@@ -124,28 +124,60 @@ const ProductDetails = () => {
   const { id } = useParams();
   const [count, setCount] = useState(1);
 
-  // id ko number me badlo, phir sahi list me se dhoondo
+  
   const productId = Number(id);
   const product =
     [...allProducts, ...featuredProducts].find((p) => p.id === productId) ||
     allProducts[0];
 
   return (
-    <div style={{ width: "100%", padding: "30px", boxSizing: "border-box", background: "#fff" }}>
-      <Link to="/" style={{ color: "#555", fontSize: "14px" }}>← Back to Home</Link>
+    <div style={{
+       width: "100%", 
+    padding: "30px", 
+    boxSizing: "border-box", 
+    background: "#fff" 
+    }}>
+      <Link to="/" style={{ 
+        color: "#555",
+         fontSize: "14px"
+          }}>← Back to Home</Link>
 
-      <div style={{ display: "flex", gap: "40px", marginTop: "20px", flexWrap: "wrap" }}>
-        <div style={{ flex: 1, minWidth: "300px" }}>
+      <div style={{ 
+        display: "flex",
+         gap: "40px",
+          marginTop: "20px", 
+          flexWrap: "wrap"
+           }}>
+        <div style={{ 
+          flex: 1, 
+          minWidth: "300px"
+           }}>
           <img
             src={product.img}
             alt={product.name}
-            style={{ width: "100%", height: "450px", objectFit: "cover", borderRadius: "15px", background: "#f5f5f0" }}
+            style={{ 
+              width: "100%", 
+              height: "450px", 
+              objectFit: "cover",
+               borderRadius: "15px",
+                background: "#f5f5f0" 
+              }}
           />
         </div>
 
-        <div style={{ flex: 1, minWidth: "300px" }}>
-          <h5 style={{ color: "#3a7bd5", fontSize: "16px" }}>{product.store}</h5>
-          <h2 style={{ fontSize: "28px", fontWeight: "bold", margin: "10px 0" }}>{product.name}</h2>
+        <div style={{
+           flex: 1, 
+          minWidth: "300px"
+           }}>
+          <h5 style={{
+             color: "#3a7bd5",
+             fontSize: "16px" 
+             }}>{product.store}</h5>
+          <h2 style={{ 
+            fontSize: "28px",
+             fontWeight: "bold", 
+             margin: "10px 0"
+              }}>{product.name}</h2>
 
           <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
             <AiFillStar size={22} color="#F6BA00" />
@@ -156,24 +188,70 @@ const ProductDetails = () => {
             <span style={{ marginLeft: "5px", color: "#555" }}>(4.9) • {product.sold}</span>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: "15px", margin: "20px 0" }}>
-            <h2 style={{ fontSize: "32px", fontWeight: "bold" }}>{product.price}$</h2>
-            <h4 style={{ fontSize: "20px", color: "red", textDecoration: "line-through" }}>{product.oldPrice}$</h4>
-            <span style={{ background: "#e7f9ee", color: "#2ecc71", padding: "4px 10px", borderRadius: "5px", fontSize: "14px" }}>
+          <div style={{
+             display: "flex",
+             alignItems: "center", 
+             gap: "15px", 
+             margin: "20px 0"
+              }}>
+            <h2 style={{ 
+              fontSize: "32px",
+               fontWeight: "bold" 
+               }}>{product.price}$</h2>
+            <h4 style={{
+               fontSize: "20px", 
+              color: "red", 
+              textDecoration: "line-through" 
+              }}>{product.oldPrice}$</h4>
+            <span style={{
+               background: "#e7f9ee",
+               color: "#2ecc71", 
+               padding: "4px 10px",
+                borderRadius: "5px",
+                 fontSize: "14px"
+                  }}>
               In Stock: {product.stock}
             </span>
           </div>
 
-          <p style={{ color: "#555", lineHeight: "1.6", fontSize: "15px" }}>{product.description}</p>
+          <p style={{
+             color: "#555",
+             lineHeight: "1.6", 
+             fontSize: "15px"
+              }}>{product.description}</p>
 
-          <div style={{ display: "flex", alignItems: "center", gap: "20px", margin: "25px 0" }}>
+          <div style={{ 
+            display: "flex",
+             alignItems: "center",
+              gap: "20px",
+               margin: "25px 0"
+                }}>
             <span style={{ fontWeight: "bold" }}>Quantity:</span>
-            <div style={{ display: "flex", alignItems: "center", border: "1px solid #ddd", borderRadius: "8px", overflow: "hidden" }}>
-              <button onClick={() => setCount(count > 1 ? count - 1 : 1)} style={{ padding: "8px 12px", border: "none", background: "#f5f5f5", cursor: "pointer" }}>
+            <div style={{ 
+              display: "flex",
+               alignItems: "center",
+                border: "1px solid #ddd",
+                 borderRadius: "8px",
+                  overflow: "hidden" 
+                  }}>
+              <button onClick={() => setCount(count > 1 ? count - 1 : 1)} style={{
+                 padding: "8px 12px",
+                 border: "none",
+                  background: "#f5f5f5", 
+                  cursor: "pointer"
+                   }}>
                 <AiOutlineMinus />
               </button>
-              <span style={{ padding: "8px 20px", fontWeight: "bold" }}>{count}</span>
-              <button onClick={() => setCount(count + 1)} style={{ padding: "8px 12px", border: "none", background: "#f5f5f5", cursor: "pointer" }}>
+              <span style={{ 
+                padding: "8px 20px",
+                 fontWeight: "bold" 
+                 }}>{count}</span>
+              <button onClick={() => setCount(count + 1)} style={{ 
+                padding: "8px 12px", 
+                border: "none",
+                 background: "#f5f5f5", 
+                 cursor: "pointer"
+                  }}>
                 <AiOutlinePlus />
               </button>
             </div>
@@ -181,10 +259,30 @@ const ProductDetails = () => {
           </div>
 
           <div style={{ display: "flex", gap: "15px" }}>
-            <button style={{ flex: 1, padding: "14px", background: "#333", color: "#fff", border: "none", borderRadius: "8px", fontSize: "16px", fontWeight: "bold", cursor: "pointer" }}>
+            <button style={{ 
+              flex: 1, 
+              padding: "14px",
+               background: "#333",
+                color: "#fff",
+                 border: "none", 
+                 borderRadius: "8px",
+                  fontSize: "16px",
+                   fontWeight: "bold", 
+                   cursor: "pointer"
+                    }}>
               Add to Cart
             </button>
-            <button style={{ flex: 1, padding: "14px", background: "#f6ba00", color: "#fff", border: "none", borderRadius: "8px", fontSize: "16px", fontWeight: "bold", cursor: "pointer" }}>
+            <button style={{
+               flex: 1,
+               padding: "14px",
+                background: "#f6ba00",
+                 color: "#fff",
+                  border: "none", 
+                  borderRadius: "8px", 
+                  fontSize: "16px", 
+                  fontWeight: "bold",
+                   cursor: "pointer"
+                    }}>
               Buy Now
             </button>
           </div>

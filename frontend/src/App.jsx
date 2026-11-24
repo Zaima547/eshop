@@ -7,6 +7,11 @@ import BestSellingPage from "./pages/BestSellingPage";
 import ProductsPage from "./pages/ProductsPage";
 import EventsPage from "./pages/EventsPage";
 import FaqPage from "./pages/FaqPage";
+import ShopCreatePage from "./pages/ShopCreatePage";
+import WishlistPage from "./pages/WishlistPage";
+import CartPage from "./pages/CartPage";
+
+
 
 
 const App = () => {
@@ -21,6 +26,9 @@ const App = () => {
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/faq" element={<FaqPage />} />
+         <Route path="/shop-create" element={<ShopCreatePage />} />
+         <Route path="/wishlist" element={<WishlistPage />} />
+           <Route path="/cart" element={<CartPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -26,7 +26,7 @@ export const productData = [
     total_sell: 80,
     stock: 10,
   },
-  {
+    {
     id: 3,
     category: "Computers and Laptop",
     name: "Sony Headphone Bluetooth Wireless - Black",
@@ -52,17 +52,21 @@ export const productData = [
     total_sell: 12,
     stock: 10,
   },
+  
   {
-    id: 5,
-    category: "Shoes",
-    name: "New Trend shoes for gents with all sizes",
-    description: "Product details info",
-    image_Url: [{ public_id: "test", url: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" }],
-    shop: { name: "Alisha Shoes Mart", shop_avatar: { public_id: "test", url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png" }, ratings: 4.2 },
-    price: 120,
-    discount_price: 89,
-    rating: 5,
-    total_sell: 49,
-    stock: 10,
+  id: 5,
+  category: "Shoes",
+  name: "New Trend shoes for gents with all sizes",
+  description: "Product details info",
+  image_Url: [{ public_id: "test", url: "https://via.placeholder.com/300" }],
+  shop: { 
+    name: "Alisha Shoes Mart", 
+    shop_avatar: { public_id: "test", url: "https://via.placeholder.com/100" } 
   },
+  price: 120,
+  discount_price: 89,
+  rating: 5,
+  total_sell: 49,
+  stock: 10,
+},
 ];

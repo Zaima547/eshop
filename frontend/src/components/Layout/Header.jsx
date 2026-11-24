@@ -1,85 +1,142 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { AiOutlineHeart, AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AiOutlineHeart, AiOutlineSearch, AiOutlineShoppingCart } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { IoIosArrowDown } from "react-icons/io";
 import { BiMenuAltLeft } from "react-icons/bi";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
-    <div className="w-full bg-white">
-      {/* UPAR WALA - White */}
-      <div className="w-[90%] mx-auto flex items-center justify-between py-3">
-        <Link to="/">
-  <div className="flex items-center gap-1">
-    {/* Gol Icon */}
-    <div className="w-8.75 h-8.75 bg-[#ff7a00] rounded-full flex items-center justify-center">
-      <span className="text-white text-[20px] font-bold">O</span>
-    </div>
-    {/* ShopO Likhaai */}
-    <h1 className="text-[28px] font-bold text-[#333]">
-      Shop<span className="text-[#ff7a00]">O</span>
-    </h1>
-  </div>
-</Link>
+    <>
+      
+      <div style={{
+         width: "100%",
+         background: "white", 
+         padding: "15px 0"
+          }}>
+        <div style={{
+           width: "90%",
+           margin: "auto", 
+           display: "flex", 
+           alignItems: "center",
+            justifyContent: "space-between"
+             }}>
+          <Link to="/">
+            <h1 style={{ 
+              fontSize: "26px",
+               fontWeight: "800", 
+               color: "black"
+                }}>
+              <span style={{ color: "red" }}>O</span> ShopO
+            </h1>
+          </Link>
 
-        {/* Search */}
-        <div className="flex w-[50%] items-center">
-          <input
-            type="text"
-            placeholder="Search Product..."
-            className="w-full h-10 border-2 border-[#3321c8] rounded-l-[5px] px-3 outline-none"
-          />
-          <div className="w-22.5 h-10 bg-[#3321c8] text-white flex items-center justify-center rounded-r-[5px] cursor-pointer">
-            <AiOutlineSearch size={22} />
+          <div style={{ 
+            display: "flex",
+             width: "50%", 
+             border: "1px solid #ccc",
+              borderRadius: "5px", 
+              overflow: "hidden"
+               }}>
+            <input
+              type="text"
+              placeholder="Search Product..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              style={{ 
+                width: "100%",
+                 padding: "10px",
+                  outline: "none", 
+                  border: "none"
+                 }}
+            />
+            <button style={{
+               background: "#3321c8",
+               color: "white", 
+               padding: "0 20px", 
+               border: "none",
+                cursor: "pointer" 
+                }}>
+              <AiOutlineSearch size={22} />
+            </button>
           </div>
+
+          <Link to="/shop-create">
+            <button style={{ 
+              background: "black",
+               color: "white",
+                padding: "10px 15px",
+                 borderRadius: "5px",
+                  cursor: "pointer",
+                   border: "none"
+                    }}>
+              Become Seller →
+            </button>
+          </Link>
         </div>
-
-        <Link to="/shop-create">
-          <div className="w-32.5 h-10 bg-[#333] text-white rounded-[5px] flex items-center justify-center">
-            Become Seller →
-          </div>
-        </Link>
       </div>
 
-      {/* NEECHE WALA - Blue Patti - Sir jaisa */}
-      <div className="w-full bg-[#3321c8]">
-        <div className="w-[90%] mx-auto flex items-center justify-between h-12.5">
+      
+      <div style={{
+         width: "100%",
+         background: "#3321c8",
+          padding: "12px 0"
+           }}>
+        <div style={{
+           width: "90%",
+           margin: "auto", 
+           display: "flex",
+            alignItems: "center",
+             justifyContent: "space-between"
+              }}>
+          <div style={{
+             display: "flex",
+             alignItems: "center",
+              gap: "10px",
+               background: "white",
+                padding: "8px 15px", 
+                borderRadius: "5px",
+                 cursor: "pointer"
+                  }}>
+            <BiMenuAltLeft size={22} />
+            <span style={{ fontWeight: "600" }}>All Categories</span>
+            <IoIosArrowDown />
+          </div>
+
+          <div style={{ display: "flex",
+             gap: "25px", 
+             color: "white",
+              fontWeight: "600"
+               }}>
+            <Link to="/" style={{ color: "white" }}>Home</Link>
+            <Link to="/best-selling" style={{ color: "white" }}>Best Selling</Link>
+            <Link to="/products" style={{ color: "white" }}>Products</Link>
+            <Link to="/events" style={{ color: "white" }}>Events</Link>
+            <Link to="/faq" style={{ color: "white" }}>FAQ</Link>
+          </div>
+
           
-          {/* All Categories - White Dabba */}
-          <div className="w-67.5 h-8.75 bg-white rounded-[5px] flex items-center justify-between px-3 cursor-pointer">
-            <div className="flex items-center gap-2">
-              <BiMenuAltLeft size={22} />
-              <h1 className="text-[16px] font-medium">All Categories</h1>
+          <div style={{ 
+            display: "flex",
+             gap: "20px",
+              alignItems: "center"
+               }}>
+            <div onClick={() => navigate("/wishlist")} style={{ cursor: "pointer" }}>
+              <AiOutlineHeart size={28} color="white" />
             </div>
-            <IoIosArrowDown size={18} />
-          </div>
-
-          {/* Nav Links - White - AB CHHUPEGA NAHI */}
-          <div className="flex items-center gap-8">
-            <Link to="/" className="text-white text-[16px] font-medium">Home</Link>
-            <Link to="/best-selling" className="text-white text-[16px] font-medium">Best Selling</Link>
-            <Link to="/products" className="text-white text-[16px] font-medium">Products</Link>
-            <Link to="/events" className="text-white text-[16px] font-medium">Events</Link>
-            <Link to="/faq" className="text-white text-[16px] font-medium">FAQ</Link>
-          </div>
-
-          {/* Icons - White */}
-          <div className="flex items-center gap-4 text-white">
-            <div className="flex items-center cursor-pointer">
-              <AiOutlineHeart size={24} color="#fff" />
+            <div onClick={() => navigate("/cart")} style={{ cursor: "pointer" }}>
+              <AiOutlineShoppingCart size={28} color="white" />
             </div>
-            <div className="flex items-center cursor-pointer">
-              <AiOutlineShoppingCart size={24} color="#fff" />
-            </div>
-            <div className="cursor-pointer">
-              <CgProfile size={24} color="#fff" />
+            <div onClick={() => navigate("/login")} style={{ cursor: "pointer" }}>
+              <CgProfile size={28} color="white" />
             </div>
           </div>
-
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
